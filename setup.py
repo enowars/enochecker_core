@@ -7,13 +7,13 @@ with open("requirements.txt", "r") as f:
     requirements = f.read().splitlines()
 
 setuptools.setup(
-    name="enochecker_async",
-    version="0.0.8",
+    name="enochecker_core",
+    version="0.0.1",
     author="Trolldemorted",
     author_email="benediktradtke@gmail.com",
-    description="Library to build async checker scripts for the EnoEngine A/D CTF Framework in Python",
+    description="Base library for enochecker libs",
     long_description=long_description,
-    url="https://github.com/enowars/enochecker_async",
+    url="https://github.com/enowars/enochecker_core",
     packages=setuptools.find_packages(),
     install_requires=requirements,
     classifiers=[
