@@ -28,5 +28,4 @@ steps:
 - script: |
     pip install pytest pytest-azurepipelines
     pip install .
-    pytest
-  displayName: 'pytest'
+  displayName: 'Install'
