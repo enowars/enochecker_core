@@ -15,7 +15,6 @@ setuptools.setup(
     long_description=long_description,
     url="https://github.com/enowars/enochecker_core",
     packages=setuptools.find_packages(),
-    install_requires=requirements,
     classifiers=[
         # How mature is this project? Common values are
         #   3 - Alpha
