@@ -8,12 +8,18 @@ class CheckerTaskResult(Enum):
     CHECKER_TASK_RESULT_DOWN = "DOWN"
     CHECKER_TASK_RESULT_INTERNAL_ERROR = "INTERNAL_ERROR"
 
+    def __str__(self):
+        return self.value
+
 class CheckerTaskType(Enum):
     CHECKER_TASK_TYPE_PUTFLAG = "putflag"
     CHECKER_TASK_TYPE_GETFLAG = "getflag"
     CHECKER_TASK_TYPE_PUTNOISE = "putnoise"
     CHECKER_TASK_TYPE_GETNOISE = "getnoise"
     CHECKER_TASK_TYPE_HAVOC = "havoc"
+
+    def __str__(self):
+        return self.value
 
 @dataclass
 class CheckerResultMessage:
