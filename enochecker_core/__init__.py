@@ -22,6 +22,13 @@ class CheckerTaskType(Enum):
         return self.value
 
 @dataclass
+class CheckerInfoMessage:
+    serviceName: str
+    flagCount: int
+    havocCount: int
+    noiseCount: int
+
+@dataclass
 class CheckerResultMessage:
     result: str
 
