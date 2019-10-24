@@ -5,7 +5,7 @@ from typing import Optional, Callable, Any, Dict, List, Union, Type
 class CheckerTaskResult(Enum):
     CHECKER_TASK_RESULT_OK = "OK"
     CHECKER_TASK_RESULT_MUMBLE = "MUMBLE"
-    CHECKER_TASK_RESULT_DOWN = "DOWN"
+    CHECKER_TASK_RESULT_DOWN = "OFFLINE"
     CHECKER_TASK_RESULT_INTERNAL_ERROR = "INTERNAL_ERROR"
 
     def __str__(self):
