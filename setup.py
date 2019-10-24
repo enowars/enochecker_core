@@ -8,7 +8,7 @@ with open("requirements.txt", "r") as f:
 
 setuptools.setup(
     name="enochecker_core",
-    version="0.1.0",
+    version="0.1.1",
     author="Trolldemorted",
     author_email="benediktradtke@gmail.com",
     description="Base library for enochecker libs",
