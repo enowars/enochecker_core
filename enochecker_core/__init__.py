@@ -40,7 +40,7 @@ class EnoLogMessage:
     timestamp: str
     module: str
     function: str
-    flag: Optional[int]
+    flag: Optional[str]
     flagIndex: Optional[int]
     runId: Optional[int]
     round: Optional[int]
