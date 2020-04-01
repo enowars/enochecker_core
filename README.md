@@ -1,1 +1,1 @@
-# enochecker_core
+# enochecker_core [![Build Status](https://dev.azure.com/ENOFLAG/ENOWARS/_apis/build/status/enochecker_core%20CI?branchName=master)](https://dev.azure.com/ENOFLAG/ENOWARS/_build) ![](https://tokei.rs/b1/github/enowars/enochecker_core)
