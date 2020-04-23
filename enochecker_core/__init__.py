@@ -53,9 +53,9 @@ class CheckerTaskMessage:
     runId: int
     method: str
     address: str
-    serviceId: str
+    serviceId: int
     serviceName: str
-    teamId: str
+    teamId: int
     team: str
     relatedRoundId: int
     round: int
