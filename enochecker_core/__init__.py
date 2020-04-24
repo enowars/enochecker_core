@@ -45,7 +45,9 @@ class EnoLogMessage:
     runId: Optional[int]
     round: Optional[int]
     message: str
+    teamId: Optional[str]
     teamName: Optional[str]
+    serviceId: Optional[str]
     serviceName: str
 
 @dataclass
