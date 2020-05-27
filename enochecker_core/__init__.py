@@ -49,6 +49,7 @@ class EnoLogMessage:
     teamName: Optional[str]
     serviceId: Optional[str]
     serviceName: str
+    method: Optional[str]
 
 @dataclass
 class CheckerTaskMessage:
