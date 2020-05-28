@@ -13,6 +13,7 @@ setuptools.setup(
     author_email="benediktradtke@gmail.com",
     description="Base library for enochecker libs",
     long_description=long_description,
+    long_description_content_type="text/markdown",
     url="https://github.com/enowars/enochecker_core",
     packages=setuptools.find_packages(),
     classifiers=[
