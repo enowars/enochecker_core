@@ -23,10 +23,10 @@ class CheckerTaskType(Enum):
 
 @dataclass
 class CheckerInfoMessage:
-    serviceName: str
-    flagCount: int
-    havocCount: int
-    noiseCount: int
+    service_name: str
+    flag_count: int
+    havoc_count: int
+    noise_count: int
 
 @dataclass
 class CheckerResultMessage:
@@ -37,33 +37,34 @@ class EnoLogMessage:
     tool: str
     type: str
     severity: str
+    severity_level: int
     timestamp: str
-    module: str
-    function: str
+    module: Optional[str]
+    function: Optional[str]
     flag: Optional[str]
-    flagIndex: Optional[int]
-    runId: Optional[int]
-    round: Optional[int]
+    flag_index: Optional[int]
+    run_id: Optional[int]
+    round_id: Optional[int]
+    related_round_id: Optional[int]
     message: str
-    teamId: Optional[str]
-    teamName: Optional[str]
-    serviceId: Optional[str]
-    serviceName: str
+    team_name: Optional[str]
+    team_id: Optional[str]
+    service_name: Optional[str]
     method: Optional[str]
 
 @dataclass
 class CheckerTaskMessage:
-    runId: int
+    run_id: int
     method: str
     address: str
-    serviceId: int
-    serviceName: str
-    teamId: int
-    team: str
-    relatedRoundId: int
-    round: int
+    service_id: int
+    service_name: str
+    team_id: int
+    team_name: str
+    round_id: int
+    related_round_id: int
     flag: Optional[str]
-    flagIndex: Optional[int]
+    flag_index: int
 
 class BrokenServiceException(Exception):
     pass
