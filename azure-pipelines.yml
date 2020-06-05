@@ -37,3 +37,8 @@ steps:
     pip install pytest pytest-azurepipelines
     pip install .
   displayName: 'Install'
+
+- script: |
+    pip install -r dev-requirements.txt
+    make lint
+  displayName: 'Lint'
