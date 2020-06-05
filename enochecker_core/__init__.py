@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from enum import Enum
-from typing import Optional, Callable, Any, Dict, List, Union, Type
+from typing import Any, Callable, Dict, List, Optional, Type, Union
+
 
 class CheckerTaskResult(Enum):
     CHECKER_TASK_RESULT_OK = "OK"
@@ -10,6 +11,7 @@ class CheckerTaskResult(Enum):
 
     def __str__(self):
         return self.value
+
 
 class CheckerTaskType(Enum):
     CHECKER_TASK_TYPE_PUTFLAG = "putflag"
@@ -21,6 +23,7 @@ class CheckerTaskType(Enum):
     def __str__(self):
         return self.value
 
+
 @dataclass
 class CheckerInfoMessage:
     service_name: str
@@ -28,9 +31,11 @@ class CheckerInfoMessage:
     havoc_count: int
     noise_count: int
 
+
 @dataclass
 class CheckerResultMessage:
     result: str
+
 
 @dataclass
 class EnoLogMessage:
@@ -52,6 +57,7 @@ class EnoLogMessage:
     service_name: Optional[str]
     method: Optional[str]
 
+
 @dataclass
 class CheckerTaskMessage:
     run_id: int
@@ -66,8 +72,10 @@ class CheckerTaskMessage:
     flag: Optional[str]
     flag_index: int
 
+
 class BrokenServiceException(Exception):
     pass
+
 
 class OfflineException(Exception):
     pass
