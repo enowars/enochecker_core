@@ -73,6 +73,8 @@ class CheckerTaskMessage:
     related_round_id: int
     flag: Optional[str]
     flag_index: int
+    timeout: int
+    round_length: int
 
 
 class BrokenServiceException(Exception):
