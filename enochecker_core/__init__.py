@@ -50,6 +50,7 @@ class EnoLogMessage:
     message: str
     module: Optional[str]
     function: Optional[str]
+    service_name: Optional[str]
     task_id: Optional[int]
     team_id: Optional[int]
     team_name: Optional[str]
