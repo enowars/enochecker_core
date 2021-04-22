@@ -7,7 +7,7 @@ class CheckerTaskResult(Enum):
     value: str
     CHECKER_TASK_RESULT_OK = "OK"
     CHECKER_TASK_RESULT_MUMBLE = "MUMBLE"
-    CHECKER_TASK_RESULT_DOWN = "OFFLINE"
+    CHECKER_TASK_RESULT_OFFLINE = "OFFLINE"
     CHECKER_TASK_RESULT_INTERNAL_ERROR = "INTERNAL_ERROR"
 
     def __str__(self) -> str:
