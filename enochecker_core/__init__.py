@@ -14,13 +14,13 @@ class CheckerTaskResult(Enum):
         return self.value
 
 
-class CheckerTaskType(Enum):
+class CheckerMethod(Enum):
     value: str
-    CHECKER_TASK_TYPE_PUTFLAG = "putflag"
-    CHECKER_TASK_TYPE_GETFLAG = "getflag"
-    CHECKER_TASK_TYPE_PUTNOISE = "putnoise"
-    CHECKER_TASK_TYPE_GETNOISE = "getnoise"
-    CHECKER_TASK_TYPE_HAVOC = "havoc"
+    CHECKER_METHOD_PUTFLAG = "putflag"
+    CHECKER_METHOD_GETFLAG = "getflag"
+    CHECKER_METHOD_PUTNOISE = "putnoise"
+    CHECKER_METHOD_GETNOISE = "getnoise"
+    CHECKER_METHOD_HAVOC = "havoc"
 
     def __str__(self) -> str:
         return self.value
@@ -64,7 +64,7 @@ class EnoLogMessage:
 @dataclass
 class CheckerTaskMessage:
     task_id: int
-    method: CheckerTaskType
+    method: CheckerMethod
     address: str
     team_id: int
     team_name: str
