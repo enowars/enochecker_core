@@ -47,18 +47,18 @@ class EnoLogMessage:
     severity: str
     severity_level: int
     timestamp: str
+    message: str
     module: Optional[str]
     function: Optional[str]
-    flag: Optional[str]
-    flag_index: Optional[int]
-    run_id: Optional[int]
-    round_id: Optional[int]
-    related_round_id: Optional[int]
-    message: str
-    team_name: Optional[str]
-    team_id: Optional[str]
     service_name: Optional[str]
-    method: Optional[str]
+    task_id: Optional[int]
+    team_id: Optional[int]
+    team_name: Optional[str]
+    current_round_id: Optional[int]
+    related_round_id: Optional[int]
+    flag: Optional[str]
+    variant_id: Optional[int]
+    task_chain_id: Optional[str]
 
 
 @dataclass
