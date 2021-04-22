@@ -33,4 +33,5 @@ setuptools.setup(
 
     ],
     python_requires=">=3.7",
+    package_data={"enochecker_core":["py.typed"]},
 )
