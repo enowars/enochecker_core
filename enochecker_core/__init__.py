@@ -52,6 +52,7 @@ class EnoLogMessage:
     function: Optional[str]
     service_name: Optional[str]
     task_id: Optional[int]
+    method: Optional[str]
     team_id: Optional[int]
     team_name: Optional[str]
     current_round_id: Optional[int]
