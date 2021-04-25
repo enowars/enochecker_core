@@ -5,10 +5,10 @@ from typing import Any, Callable, Dict, List, Optional, Type, Union
 
 class CheckerTaskResult(Enum):
     value: str
-    CHECKER_TASK_RESULT_OK = "OK"
-    CHECKER_TASK_RESULT_MUMBLE = "MUMBLE"
-    CHECKER_TASK_RESULT_OFFLINE = "OFFLINE"
-    CHECKER_TASK_RESULT_INTERNAL_ERROR = "INTERNAL_ERROR"
+    OK = "OK"
+    MUMBLE = "MUMBLE"
+    OFFLINE = "OFFLINE"
+    INTERNAL_ERROR = "INTERNAL_ERROR"
 
     def __str__(self) -> str:
         return self.value
@@ -16,11 +16,11 @@ class CheckerTaskResult(Enum):
 
 class CheckerMethod(Enum):
     value: str
-    CHECKER_METHOD_PUTFLAG = "putflag"
-    CHECKER_METHOD_GETFLAG = "getflag"
-    CHECKER_METHOD_PUTNOISE = "putnoise"
-    CHECKER_METHOD_GETNOISE = "getnoise"
-    CHECKER_METHOD_HAVOC = "havoc"
+    PUTFLAG = "putflag"
+    GETFLAG = "getflag"
+    PUTNOISE = "putnoise"
+    GETNOISE = "getnoise"
+    HAVOC = "havoc"
 
     def __str__(self) -> str:
         return self.value
