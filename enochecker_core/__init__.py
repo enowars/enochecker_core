@@ -21,6 +21,7 @@ class CheckerMethod(Enum):
     PUTNOISE = "putnoise"
     GETNOISE = "getnoise"
     HAVOC = "havoc"
+    EXPLOIT = "exploit"
 
     def __str__(self) -> str:
         return self.value
@@ -32,12 +33,15 @@ class CheckerInfoMessage:
     flag_variants: int
     noise_variants: int
     havoc_variants: int
+    exploit_variants: int
 
 
 @dataclass
 class CheckerResultMessage:
     result: CheckerTaskResult
     message: Optional[str]
+    attack_info: Optional[str] = None
+    flag: Optional[str] = None
 
 
 @dataclass
@@ -60,6 +64,9 @@ class EnoLogMessage:
     flag: Optional[str]
     variant_id: Optional[int]
     task_chain_id: Optional[str]
+    flag_regex: Optional[str]
+    flag_hash: Optional[str]
+    attack_info: Optional[str]
 
 
 @dataclass
@@ -76,6 +83,9 @@ class CheckerTaskMessage:
     timeout: int
     round_length: int
     task_chain_id: str
+    flag_regex: Optional[str] = None
+    flag_hash: Optional[str] = None
+    attack_info: Optional[str] = None
 
 
 class BrokenServiceException(Exception):
