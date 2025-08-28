@@ -1,10 +1,9 @@
 from dataclasses import dataclass
 from enum import Enum
-from typing import Any, Callable, Dict, List, Optional, Type, Union
+from typing import Optional
 
 
 class CheckerTaskResult(Enum):
-    value: str
     OK = "OK"
     MUMBLE = "MUMBLE"
     OFFLINE = "OFFLINE"
@@ -15,7 +14,6 @@ class CheckerTaskResult(Enum):
 
 
 class CheckerMethod(Enum):
-    value: str
     PUTFLAG = "putflag"
     GETFLAG = "getflag"
     PUTNOISE = "putnoise"
