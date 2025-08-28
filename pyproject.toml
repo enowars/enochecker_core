@@ -1,0 +1,21 @@
+[project]
+name = "enochecker-core"
+version = "0.10.1"
+requires-python = ">=3.9"
+dependencies = []
+authors = [
+	{ name = "Louis Burda", email = "dev@sinitax.com" },
+	{ name = "Trolldemorted", email = "benediktradtke@gmail.com" }
+]
+description = "Library for enochecker data structures"
+
+[dependency-groups]
+format = [
+    "ruff>=0.12.11",
+]
+lint = [
+    "ruff>=0.12.11",
+]
+typing = [
+    "mypy>=1.17.1",
+]

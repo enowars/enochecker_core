@@ -1,13 +1,26 @@
-lint:
-	python -m isort -c enochecker_core/
-	python -m black --line-length 160 --check enochecker_core/
-	python -m flake8 --select F --per-file-ignores="__init__.py:F401" enochecker_core/
-	python -m mypy enochecker_core/
+UV_FLAGS ?= --inexact
+UV_RUN ?= env VIRTUAL_ENV=.venv uv run $(UV_FLAGS)
+
+all: format lint mypy
+
+fix: format-fix lint-fix
 
 format:
-	python -m isort enochecker_core/
-	python -m black --line-length 160 enochecker_core/
+	@$(UV_RUN) --group format ruff format --check
 
-test:
-	pip install .
-	python -m pytest
+format-fix:
+	@$(UV_RUN) --group format ruff format
+
+lint:
+	@$(UV_RUN) --group lint ruff check
+
+lint-fix:
+	@$(UV_RUN) --group lint ruff check --fix
+
+mypy:
+	@$(UV_RUN) --group typing mypy enochecker_core/
+
+build:
+	@uv build
+
+.PHONY: all fix format format-fix lint lint-fix mypy build
