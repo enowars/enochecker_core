@@ -44,4 +44,4 @@ jobs:
     - name: Test build
       run: |
         make --trace build
-        pip install dist/enochecker_cli-*.tar.gz
+        pip install dist/enochecker_core-*.tar.gz
