@@ -24,8 +24,9 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    - name: Setup UV
+    - name: Setup environment
       run: |
+        sudo apt update -y && sudo apt install make
         python -m pip install uv==0.8.5
         echo "UV_FLAGS=--exact --isolated --frozen" >> $GITHUB_ENV
 
