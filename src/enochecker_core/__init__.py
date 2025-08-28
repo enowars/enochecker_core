@@ -1,19 +1,26 @@
-from dataclasses import dataclass
-from enum import Enum
-from typing import Optional
+__all__ = [
+    "CheckerTaskResult",
+    "CheckerMethod",
+    "CheckerInfoMessage",
+    "CheckerResultMessage",
+    "EnoLogMessage",
+    "CheckerTaskMessage",
+    "CheckerTaskMessageModel",
+]
+
+from enum import StrEnum
+from pydantic.alias_generators import to_camel
+from pydantic import AliasGenerator, BaseModel as PydanticBaseModel, ConfigDict
 
 
-class CheckerTaskResult(Enum):
+class CheckerTaskResult(StrEnum):
     OK = "OK"
     MUMBLE = "MUMBLE"
     OFFLINE = "OFFLINE"
     INTERNAL_ERROR = "INTERNAL_ERROR"
 
-    def __str__(self) -> str:
-        return self.value
 
-
-class CheckerMethod(Enum):
+class CheckerMethod(StrEnum):
     PUTFLAG = "putflag"
     GETFLAG = "getflag"
     PUTNOISE = "putnoise"
@@ -21,11 +28,15 @@ class CheckerMethod(Enum):
     HAVOC = "havoc"
     EXPLOIT = "exploit"
 
-    def __str__(self) -> str:
-        return self.value
+
+class BaseModel(PydanticBaseModel):
+    model_config = ConfigDict(
+        use_enum_values=True,
+        alias_generator=AliasGenerator(alias=to_camel),
+        validate_by_name=True,
+    )
 
 
-@dataclass
 class CheckerInfoMessage:
     service_name: str
     flag_variants: int
@@ -34,40 +45,24 @@ class CheckerInfoMessage:
     exploit_variants: int
 
 
-@dataclass
+class CheckerInfoMessageModel(CheckerInfoMessage, BaseModel):
+    def __init__(self, *args, **kwargs):
+        return super().__init__(*args, **kwargs)
+    pass
+
+
 class CheckerResultMessage:
     result: CheckerTaskResult
-    message: Optional[str] = None
-    attack_info: Optional[str] = None
-    flag: Optional[str] = None
+    message: str | None = None
+    attack_info: str | None = None
+    flag: str | None = None
 
 
-@dataclass
-class EnoLogMessage:
-    tool: str
-    type: str
-    severity: str
-    severity_level: int
-    timestamp: str
-    message: str
-    module: Optional[str]
-    function: Optional[str]
-    service_name: Optional[str]
-    task_id: Optional[int]
-    method: Optional[str]
-    team_id: Optional[int]
-    team_name: Optional[str]
-    current_round_id: Optional[int]
-    related_round_id: Optional[int]
-    flag: Optional[str]
-    variant_id: Optional[int]
-    task_chain_id: Optional[str]
-    flag_regex: Optional[str]
-    flag_hash: Optional[str]
-    attack_info: Optional[str]
+class CheckerResultMessageModel(CheckerResultMessage, BaseModel):
+    def __init__(self, *args, **kwargs):
+        return super().__init__(*args, **kwargs)
 
 
-@dataclass
 class CheckerTaskMessage:
     task_id: int
     method: CheckerMethod
@@ -76,19 +71,45 @@ class CheckerTaskMessage:
     team_name: str
     current_round_id: int
     related_round_id: int
-    flag: Optional[str]
+    flag: str | None
     variant_id: int
     timeout: int
     round_length: int
     task_chain_id: str
-    flag_regex: Optional[str] = None
-    flag_hash: Optional[str] = None
-    attack_info: Optional[str] = None
+    flag_regex: str | None = None
+    flag_hash: str | None = None
+    attack_info: str | None = None
 
 
-class BrokenServiceException(Exception):
-    pass
+class CheckerTaskMessageModel(CheckerTaskMessage, BaseModel):
+    def __init__(self, *args, **kwargs):
+        return super().__init__(*args, **kwargs)
 
 
-class OfflineException(Exception):
-    pass
+class EnoLogMessage:
+    tool: str
+    type: str
+    severity: str
+    severity_level: int
+    timestamp: str
+    message: str
+    module: str | None
+    function: str | None
+    service_name: str | None
+    task_id: int | None
+    method: str | None
+    team_id: int | None
+    team_name: str | None
+    current_round_id: int | None
+    related_round_id: int | None
+    flag: str | None
+    variant_id: int | None
+    task_chain_id: str | None
+    flag_regex: str | None
+    flag_hash: str | None
+    attack_info: str | None
+
+
+class EnoLogMessageModel(EnoLogMessage, BaseModel):
+    def __init__(self, *args, **kwargs):
+        return super().__init__(*args, **kwargs)
