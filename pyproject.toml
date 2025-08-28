@@ -19,3 +19,15 @@ lint = [
 typing = [
     "mypy>=1.17.1",
 ]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["*"]
+exclude = []
+
+[tool.setuptools.package-data]
+"enochecker_core" = ["py.typed"]

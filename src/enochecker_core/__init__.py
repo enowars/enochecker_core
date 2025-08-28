@@ -37,7 +37,7 @@ class CheckerInfoMessage:
 @dataclass
 class CheckerResultMessage:
     result: CheckerTaskResult
-    message: Optional[str]
+    message: Optional[str] = None
     attack_info: Optional[str] = None
     flag: Optional[str] = None
 
