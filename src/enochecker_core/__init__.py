@@ -7,25 +7,31 @@ __all__ = [
     "CheckerTaskMessage",
 ]
 
-from enum import StrEnum
+from enum import Enum
 from pydantic.alias_generators import to_camel
 from pydantic import AliasGenerator, BaseModel as PydanticBaseModel, ConfigDict
 
 
-class CheckerTaskResult(StrEnum):
+class CheckerTaskResult(str, Enum):
     OK = "OK"
     MUMBLE = "MUMBLE"
     OFFLINE = "OFFLINE"
     INTERNAL_ERROR = "INTERNAL_ERROR"
 
+    def __str__(self) -> str:
+        return self.value
 
-class CheckerMethod(StrEnum):
+
+class CheckerMethod(str, Enum):
     PUTFLAG = "putflag"
     GETFLAG = "getflag"
     PUTNOISE = "putnoise"
     GETNOISE = "getnoise"
     HAVOC = "havoc"
     EXPLOIT = "exploit"
+
+    def __str__(self) -> str:
+        return self.value
 
 
 class BaseModel(PydanticBaseModel):
