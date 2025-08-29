@@ -18,7 +18,7 @@ lint-fix:
 	@$(UV_RUN) --group lint ruff check --fix
 
 mypy:
-	@$(UV_RUN) --group typing mypy enochecker_core/
+	@$(UV_RUN) --group typing mypy src/enochecker_core
 
 build:
 	@uv build

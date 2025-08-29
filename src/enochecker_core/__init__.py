@@ -5,7 +5,6 @@ __all__ = [
     "CheckerResultMessage",
     "EnoLogMessage",
     "CheckerTaskMessage",
-    "CheckerTaskMessageModel",
 ]
 
 from enum import StrEnum
@@ -37,7 +36,7 @@ class BaseModel(PydanticBaseModel):
     )
 
 
-class CheckerInfoMessage:
+class CheckerInfoMessage(BaseModel):
     service_name: str
     flag_variants: int
     noise_variants: int
@@ -45,26 +44,14 @@ class CheckerInfoMessage:
     exploit_variants: int
 
 
-class CheckerInfoMessageModel(CheckerInfoMessage, BaseModel):
-    def __init__(self, *args, **kwargs):
-        return super().__init__(*args, **kwargs)
-
-    pass
-
-
-class CheckerResultMessage:
+class CheckerResultMessage(BaseModel):
     result: CheckerTaskResult
     message: str | None = None
     attack_info: str | None = None
     flag: str | None = None
 
 
-class CheckerResultMessageModel(CheckerResultMessage, BaseModel):
-    def __init__(self, *args, **kwargs):
-        return super().__init__(*args, **kwargs)
-
-
-class CheckerTaskMessage:
+class CheckerTaskMessage(BaseModel):
     task_id: int
     method: CheckerMethod
     address: str
@@ -82,12 +69,7 @@ class CheckerTaskMessage:
     attack_info: str | None = None
 
 
-class CheckerTaskMessageModel(CheckerTaskMessage, BaseModel):
-    def __init__(self, *args, **kwargs):
-        return super().__init__(*args, **kwargs)
-
-
-class EnoLogMessage:
+class EnoLogMessage(BaseModel):
     tool: str
     type: str
     severity: str
@@ -109,8 +91,3 @@ class EnoLogMessage:
     flag_regex: str | None
     flag_hash: str | None
     attack_info: str | None
-
-
-class EnoLogMessageModel(EnoLogMessage, BaseModel):
-    def __init__(self, *args, **kwargs):
-        return super().__init__(*args, **kwargs)
