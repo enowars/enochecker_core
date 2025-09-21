@@ -29,6 +29,7 @@ class CheckerMethod(str, Enum):
     GETNOISE = "getnoise"
     HAVOC = "havoc"
     EXPLOIT = "exploit"
+    TEST = "test"
 
     def __str__(self) -> str:
         return self.value
@@ -48,6 +49,7 @@ class CheckerInfoMessage(BaseModel):
     noise_variants: int
     havoc_variants: int
     exploit_variants: int
+    test_variants: int = 0
 
 
 class CheckerResultMessage(BaseModel):
