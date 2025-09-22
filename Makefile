@@ -1,26 +1,30 @@
 UV_FLAGS ?= --inexact
 UV_RUN ?= env VIRTUAL_ENV=.venv uv run $(UV_FLAGS)
 
-all: format lint mypy
+all: format lint mypy test
 
 fix: format-fix lint-fix
 
 format:
-	@$(UV_RUN) --group format ruff format --check
+	@$(UV_RUN) --group dev ruff format --check
 
 format-fix:
-	@$(UV_RUN) --group format ruff format
+	@$(UV_RUN) --group dev ruff format
 
 lint:
-	@$(UV_RUN) --group lint ruff check
+	@$(UV_RUN) --group dev ruff check
 
 lint-fix:
-	@$(UV_RUN) --group lint ruff check --fix
+	@$(UV_RUN) --group dev ruff check --fix
 
 mypy:
-	@$(UV_RUN) --group typing mypy src/enochecker_core
+	@$(UV_RUN) --group dev mypy src/enochecker_core
 
 build:
 	@uv build
 
-.PHONY: all fix format format-fix lint lint-fix mypy build
+test:
+	@test -z "$(shell ls tests 2>/dev/null)" || \
+		$(UV_RUN) --group dev pytest -v
+
+.PHONY: all fix format format-fix lint lint-fix mypy build test

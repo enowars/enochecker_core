@@ -12,14 +12,10 @@ authors = [
 description = "Library for enochecker data structures"
 
 [dependency-groups]
-format = [
+dev = [
     "ruff>=0.12.11",
-]
-lint = [
-    "ruff>=0.12.11",
-]
-typing = [
     "mypy>=1.17.1",
+    "pytest>=8.4.2",
 ]
 
 [build-system]
