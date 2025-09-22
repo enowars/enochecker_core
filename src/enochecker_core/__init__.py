@@ -40,6 +40,8 @@ class BaseModel(PydanticBaseModel):
         use_enum_values=True,
         alias_generator=AliasGenerator(alias=to_camel),
         validate_by_name=True,
+        validate_by_alias=True,
+        serialize_by_alias=True,
     )
 
 
