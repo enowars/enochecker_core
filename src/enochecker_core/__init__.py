@@ -69,7 +69,7 @@ class CheckerTaskMessage(BaseModel):
     team_name: str
     current_round_id: int
     related_round_id: int
-    flag: str | None
+    flag: str | None = None
     variant_id: int
     timeout: int
     round_length: int
